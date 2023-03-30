@@ -9,18 +9,18 @@ const Name = props => {
 }
 
 class ShowHide extends Component {
-  state = {showFirst: true, showLast: true}
+  state = {firstNameHidden: true, lastNameHidden: true}
 
   showFirstName = () => {
-    this.setState(prevSate => ({showFirst: !prevSate.showFirst}))
+    this.setState(prevState => ({firstNameHidden: !prevState.firstNameHidden}))
   }
 
   showLastName = () => {
-    this.setState(prevSate => ({showLast: !prevSate.showLast}))
+    this.setState(prevState => ({lastNameHidden: !prevState.lastNameHidden}))
   }
 
   render() {
-    const {showFirst, showLast} = this.state
+    const {firstNameHidden, lastNameHidden} = this.state
 
     return (
       <div className="main-container">
@@ -28,30 +28,26 @@ class ShowHide extends Component {
           <h1>Show/Hide</h1>
           <div className="show-hide-container">
             <div className="name-cont">
-              <div>
-                <button
-                  type="button"
-                  className="button"
-                  onClick={this.showFirstName}
-                >
-                  Show/Hide Firstname
-                </button>
-              </div>
+              <button
+                type="button"
+                className="button"
+                onClick={this.showFirstName}
+              >
+                Show/Hide Firstname
+              </button>
 
-              {showFirst ? <Name name="Joe" /> : null}
+              {firstNameHidden ? <Name name="Joe" /> : null}
             </div>
             <div className="name-cont">
-              <div>
-                <button
-                  type="button"
-                  className="button"
-                  onClick={this.showLastName}
-                >
-                  Show/Hide Lastname
-                </button>
-              </div>
+              <button
+                type="button"
+                className="button"
+                onClick={this.showLastName}
+              >
+                Show/Hide Lastname
+              </button>
 
-              {showLast ? <Name name="Jonas" /> : null}
+              {lastNameHidden ? <Name name="Jonas" /> : null}
             </div>
           </div>
         </div>
