@@ -9,7 +9,7 @@ const Name = props => {
 }
 
 class ShowHide extends Component {
-  state = {firstNameHidden: true, lastNameHidden: true}
+  state = {firstNameHidden: false, lastNameHidden: false}
 
   showFirstName = () => {
     this.setState(prevState => ({firstNameHidden: !prevState.firstNameHidden}))
@@ -36,7 +36,7 @@ class ShowHide extends Component {
                 Show/Hide Firstname
               </button>
 
-              {firstNameHidden ? <Name name="Joe" /> : null}
+              {firstNameHidden === false ? <Name name="Joe" /> : null}
             </div>
             <div className="name-cont">
               <button
@@ -47,7 +47,7 @@ class ShowHide extends Component {
                 Show/Hide Lastname
               </button>
 
-              {lastNameHidden ? <Name name="Jonas" /> : null}
+              {lastNameHidden === false ? <Name name="Jonas" /> : null}
             </div>
           </div>
         </div>
